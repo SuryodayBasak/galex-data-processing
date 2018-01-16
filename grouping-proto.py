@@ -9,7 +9,7 @@ grp = []
 count = 0
 
 for index, row in df.iterrows():
-    if index > 100:
+    if index > 1000:
         break
     count += 1
     print("Currently on row: ", count)
@@ -50,6 +50,7 @@ for index, row in df.iterrows():
                         "z" : row['z1'],
                         "fuv" : row['f1'],
                         "nuv" : row['n1']})
+
         new_grp.append({"id" : row[nbh],
                         "x" : row['x2'],
                         "y" : row['y2'],
@@ -63,15 +64,16 @@ for i in range(len(grp_id)):
 
 for i in range(len(grp)):
     grp_json = {}
-    grp_json["obj_id"] = "grp"+str(i)
-    grp_json["objects"] = grp[i]
+    grp_json["lvl1_grp_id"] = "grp"+str(i)
+    grp_json["obs"] = grp[i]
 
-    n = len(grp_json["objects"])
-    grp_json["eff_fuv"] = sum(item["fuv"] for item in grp_json["objects"])/n
-    grp_json["eff_nuv"] = sum(item["nuv"] for item in grp_json["objects"])/n
-    grp_json["eff_x"] = sum(item["x"] for item in grp_json["objects"])/n
-    grp_json["eff_y"] = sum(item["y"] for item in grp_json["objects"])/n
-    grp_json["eff_z"] = sum(item["z"] for item in grp_json["objects"])/n
+    #n = len(grp_json["obs"])
+    #grp_json["e_fuv"] = sum(smpl["fuv"] for smpl in grp_json["obs"])/n
+    #grp_json["e_nuv"] = sum(smpl["nuv"] for smpl in grp_json["obs"])/n
+    #grp_json["e_x"] = sum(smpl["x"] for smpl in grp_json["obs"])/n
+    #grp_json["e_y"] = sum(smpl["y"] for smpl in grp_json["obs"])/n
+    #grp_json["e_z"] = sum(smpl["z"] for smpl in grp_json["obs"])/n
+    #grp_json["e_fn"] = sum(smpl["diff_fn"] for smpl in grp_json["obs"])/n
 
     print(grp_json)
     print('\n')
