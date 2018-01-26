@@ -11,8 +11,8 @@ grp = []
 count = 0
 
 for index, row in df.iterrows():
-    if index > 10000:
-        break
+    #if index > 10000:
+    #    break
     count += 1
     print("Currently on row: ", count, "/ 154924")
     flag = 0
@@ -97,7 +97,7 @@ for i in range(len(grp_id)):
 
 for i in range(len(grp)):
     grp_json = {}
-    grp_json["lvl1_grp_id"] = "grp"+str(i)
+    grp_json["lvl1_grp_id"] = "grp"+str(i + 1)
     grp_json["nodes"] = grp[i]
     grp_json["edges"] = grp_edges[i]
 
