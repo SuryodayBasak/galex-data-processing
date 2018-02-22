@@ -1,7 +1,7 @@
 import pandas as pd
 import json
 
-df = pd.read_csv("../data/distanceMatches_specter.csv",
+df = pd.read_csv("../data/dm.csv",
                     dtype={'obsid1': object, 'obsid2': object,
                             'peid1': object, 'peid2': object})
 
@@ -14,7 +14,7 @@ for index, row in df.iterrows():
     #if index > 10000:
     #    break
     count += 1
-    print("Currently on row: ", count, "/ 154924")
+    print("Currently on row: ", count, "/ 20358")
     flag = 0
     for j in range(len(grp_id)):
         if (row['obsid1'] in grp_id[j]) or (row['obsid2'] in grp_id[j]):
@@ -101,7 +101,7 @@ for i in range(len(grp)):
     grp_json["nodes"] = grp[i]
     grp_json["edges"] = grp_edges[i]
 
-    with open("../json_data_dump/grp"+str(i)+".json" , 'w') as outfile:
+    with open("../json_data_dump_kk/grp"+str(i)+".json" , 'w') as outfile:
         json.dump(grp_json, outfile)
     #n = len(grp_json["obs"])
     #grp_json["e_fuv"] = sum(smpl["fuv"] for smpl in grp_json["obs"])/n
